@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <button class="btn btn-primary btn-block" (click)="goHome">
+                <button class="btn btn-primary btn-block" (click)="onSubmit()">
                     Login
                 </button>
             </div>
@@ -37,7 +37,7 @@
             </div>
         </form>
         <div class="alert alert-success" *ngIf="isLoggedIn">
-            Logged in as {{ roles }}.
+            Logged in as {{ username }}.
         </div>
     </div>
 </div>

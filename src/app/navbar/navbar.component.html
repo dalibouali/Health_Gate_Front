@@ -32,8 +32,9 @@
     <!-- Uncomment below if you prefer to use an image logo -->
     <!-- <h1 class="logo me-auto"><a href="index.html">Medicio</a></h1> -->
 
-    <nav id="navbar" class="navbar order-last order-lg-0 ">
+    <nav id="navbar" class="navbar order-last order-lg-0 " (load)="roleChange()">
       <ul>
+
         <li><a class="nav-link scrollto " routerLink="/home" routerLinkActive="active">Home</a></li>
         <li><a class="nav-link scrollto" routerLink="/about" routerLinkActive="active">About</a></li>
         <li><a class="nav-link scrollto" routerLink="/services" routerLinkActive="active">Services</a></li>
@@ -59,8 +60,14 @@
         <a routerLink="/appointment" routerLinkActive="active" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
         <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         <li><a class="nav-link scrollto" routerLink="/register" routerLinkActive="active">Register</a></li>
-        <li><a class="nav-link scrollto" routerLink="/login" routerLinkActive="active">Login</a></li>
-        <li><a class="nav-link scrollto" routerLink="/profile" routerLinkActive="active">Profile</a></li>
+        <div *ngIf="username ">
+          <li><a class="nav-link scrollto" routerLink="/login" routerLinkActive="active">Login</a></li>
+        </div>
+        <div *ngIf="username==null; ">
+          <li><a class="nav-link scrollto" routerLink="/login" routerLinkActive="active">Login</a></li>
+        </div>
+        <li *ngIf="username!=null"><a class="nav-link scrollto" (click)="logout()">Logout</a></li>
+        <li *ngIf="username"><a class="nav-link scrollto" routerLink="/profile" routerLinkActive="active">{{username}}</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
