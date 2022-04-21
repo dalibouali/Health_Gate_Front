@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
         this.jwtHelper = new JwtHelperService();
         this.decodedToken = this.jwtHelper.decodeToken(this.decodedToken)
         this.tokenStorage.saveUser(this.decodedToken)
+        console.log("decoded token",this.decodedToken,"end")
         //console.log("Get User res:///",this.tokenStorage.getUser())
         //console.log("Get Role res:///",this.tokenStorage.getRole())
 

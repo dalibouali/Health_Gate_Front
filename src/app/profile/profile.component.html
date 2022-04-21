@@ -131,27 +131,22 @@
                               </div>
                             </div>
                           </div>
-                          <div class="row">
-                            <div class="col mb-3">
-                              <div class="form-group">
-                                <label>Bio </label>
-                                <textarea class="form-control" rows="5" placeholder="My Bio"
-                                          [(ngModel)]="form.bio"  #bio="ngModel" [ngModelOptions]="{standalone: true}"
-                                ></textarea>
+                          <!--DOCTOR><-->
+                          <!--button class="bi-toggles" (click)="toggleShow()" type="checkbox" >apply as a doctor</button-->
+
+                          <div *ngIf="isShown" class="row container-fluid"  id="divshow" >
+                            <div class="row">
+                              <div class="col mb-3">
+                                <div class="form-group">
+                                  <label>Bio </label>
+                                  <textarea class="form-control" rows="5" placeholder="My Bio"
+                                            [(ngModel)]="form.bio"  #bio="ngModel" [ngModelOptions]="{standalone: true}"
+                                  ></textarea>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Phone </label>
-                            <input class="form-control" type="text"
-                                   [(ngModel)]="form.phone"  #phone="ngModel" [ngModelOptions]="{standalone: true}">
-                          </div>
-                        </div>
-                      </div>
                       <div class="row">
                         <div class="col">
                           <div class="form-group">
@@ -161,6 +156,19 @@
                           </div>
                         </div>
                       </div>
+                          </div>
+                          <!--END_DOCTOR><-->
+
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label>Phone </label>
+                            <input class="form-control" type="text"
+                                   [(ngModel)]="form.phone"  #phone="ngModel" [ngModelOptions]="{standalone: true}">
+                          </div>
+                        </div>
+                      </div>
+
 
                       <div class="col-12 col-sm-5 offset-sm-1 mb-3">
                         <div class="mb-2"><b>Keeping in Touch</b></div>
@@ -210,7 +218,7 @@
     <div class="card mb-3">
       <div class="card-body">
         <div class="px-xl-3">
-          <button class="btn btn-block btn-secondary">
+          <button class="btn btn-block btn-secondary" >
             <i class="fa fa-sign-out"></i>
             <span>Logout</span>
           </button>
