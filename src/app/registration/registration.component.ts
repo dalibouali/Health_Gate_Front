@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RegistrationService } from '../_services/registration.service';
 import { Router } from "@angular/router";
+
 import { TokenStorageService } from '../_services/token-storage.service';
+
 
 @Component({
   selector: 'app-registration',
@@ -73,14 +75,18 @@ export class RegistrationComponent implements OnInit {
     if (event.target.checked) this.form.diseases += (event.target.value)
   }
 
+
   goHome(): void {
     this.router.navigate(['/login']);
   }
+
   onSubmit(): void {
     this.Registration.register(this.form).subscribe(
       data => {
         this.isRegistred = true;
+
         this.goHome()
+
 
       },
 
@@ -89,5 +95,7 @@ export class RegistrationComponent implements OnInit {
       }
     );
   }
+
+
 
 }
