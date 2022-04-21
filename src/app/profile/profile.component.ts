@@ -7,7 +7,6 @@ import {Router} from "@angular/router";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  isShown: boolean = false ;
   form: any = {
     firstName: null,
     lastName: null,
@@ -32,11 +31,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  // Toggle rest of profile for doctor application
-
-
-
   goHome(): void {
     this.router.navigate(['/home']);
   }

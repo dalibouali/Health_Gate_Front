@@ -8,26 +8,19 @@ import { TokenStorageService } from '../_services/token-storage.service';
 })
 export class NavbarComponent implements OnInit {
 role:any;
-username="";
-logged:any;
+username:String="";
 test:any
   constructor(private tokenStorage :TokenStorageService ) {}
 
 roleChange(){
   if (this.tokenStorage.getUser()){
     this.role = this.tokenStorage.getRole()
-    console.log("roleChange role:",window.sessionStorage.getItem('auth-token'))
     this.username = this.tokenStorage.getUser()
     let cred = [this.username, this.role]
     console.log(cred)
-
     return cred;
   }
-
-  else {
-
-    return null
-  };
+  else return null;
 }
 
 logout(){
