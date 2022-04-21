@@ -1,76 +1,90 @@
-<!--nav class="navbar navbar-expand-lg navbar-light  " style="background-color:#0dcaf0;" >
-  <div class="container-fluid">
-    <a class="navbar-brand"  routerLink="/home" routerLinkActive="active">H-Gate</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active">Home</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
-        </li>
-          </ul>
-
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav-->
-
 <header id="header" class="sticky-top">
   <div class="container d-flex align-items-center ">
 
     <a href="index.html" class="logo me-auto"><img src="../assets/img/logo.png" alt=""></a>
-    <!-- Uncomment below if you prefer to use an image logo -->
-    <!-- <h1 class="logo me-auto"><a href="index.html">Medicio</a></h1> -->
 
-    <nav id="navbar" class="navbar order-last order-lg-0 " (load)="roleChange()">
-      <ul>
 
-        <li><a class="nav-link scrollto " routerLink="/home" routerLinkActive="active">Home</a></li>
-        <li><a class="nav-link scrollto" routerLink="/about" routerLinkActive="active">About</a></li>
-        <li><a class="nav-link scrollto" routerLink="/services" routerLinkActive="active">Services</a></li>
-        <li><a class="nav-link scrollto" routerLink="/departments" routerLinkActive="active">Departments</a></li>
-        <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
-        <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-          <ul>
-            <li><a href="#">Drop Down 1</a></li>
-            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+
+        <div *ngIf="username.length; else notLogged">
+          <div *ngIf="role=='ROLE_USER'">
+            <nav id="navbar" class="navbar order-last order-lg-0 " (change)="roleChange()">
               <ul>
-                <li><a href="#">Deep Drop Down 1</a></li>
-                <li><a href="#">Deep Drop Down 2</a></li>
-                <li><a href="#">Deep Drop Down 3</a></li>
-                <li><a href="#">Deep Drop Down 4</a></li>
-                <li><a href="#">Deep Drop Down 5</a></li>
+
+                <li><a class="nav-link scrollto " routerLink="/home" routerLinkActive="active">Home</a></li>
+                <li><a class="nav-link scrollto" routerLink="/about" routerLinkActive="active">About</a></li>
+                <li><a class="nav-link scrollto" routerLink="/services" routerLinkActive="active">Services</a></li>
+                <li><a class="nav-link scrollto" routerLink="/departments" routerLinkActive="active">Departments</a></li>
+                <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
+                <a routerLink="/appointment" routerLinkActive="active" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
+                <li><a class="nav-link scrollto" routerLink="/about">Contact</a></li>
+
+                <li><a class="nav-link scrollto" routerLink="/home"(click)="logout()">Logout</a></li>
+                <li><a class="nav-link scrollto" routerLink="/profile" routerLinkActive="active">{{username}}<img src="../assets/img/logged.png"  alt="logged logo"></a></li>
+
+
               </ul>
-            </li>
-            <li><a href="#">Drop Down 2</a></li>
-            <li><a href="#">Drop Down 3</a></li>
-            <li><a href="#">Drop Down 4</a></li>
+              <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+          </div>
+          <div *ngIf="role=='ROLE_DOCTOR'">
+            <nav id="navbar" class="navbar order-last order-lg-0 " (change)="roleChange()">
+              <ul>
+
+                <li><a class="nav-link scrollto " routerLink="/home" routerLinkActive="active">Home</a></li>
+                <li><a class="nav-link scrollto" routerLink="/about" routerLinkActive="active">About</a></li>
+                <li><a class="nav-link scrollto" routerLink="/services" routerLinkActive="active">Services</a></li>
+                <li><a class="nav-link scrollto" routerLink="/departments" routerLinkActive="active">Departments</a></li>
+                <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
+                <a routerLink="/appointment" routerLinkActive="active" class="appointment-btn scrollto"><span class="d-none d-md-inline">Check my</span> Appointments</a>
+                <li><a class="nav-link scrollto" routerLink="/about">Contact</a></li>
+
+                <li><a class="nav-link scrollto" routerLink="/home"(click)="logout()">Logout</a></li>
+                <li><a class="nav-link scrollto" routerLink="/profile" routerLinkActive="active">{{username}}<img src="../assets/img/doctor.png"  alt=""></a></li>
+
+
+              </ul>
+              <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+          </div>
+          <div *ngIf="role=='ROLE_ADMIN'">
+          <nav id="navbar" class="navbar order-last order-lg-0 " (change)="roleChange()">
+            <ul>
+
+              <li><a class="nav-link scrollto " routerLink="/home" routerLinkActive="active">Home</a></li>
+              <li><a class="nav-link scrollto" routerLink="/about" routerLinkActive="active">About</a></li>
+              <li><a class="nav-link scrollto" routerLink="/services" routerLinkActive="active">Services</a></li>
+              <li><a class="nav-link scrollto" routerLink="/departments" routerLinkActive="active">Departments</a></li>
+              <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
+              <a routerLink="/appointment" routerLinkActive="active" class="appointment-btn scrollto"><span class="d-none d-md-inline">Check</span> applications</a>
+              <!--f> ADD a manage users component <-->
+              <li><a class="nav-link scrollto" routerLink="/about">Manage Users</a></li>
+
+          <li><a class="nav-link scrollto" routerLink="/home"(click)="logout()">Logout</a></li>
+          <li><a class="nav-link scrollto" routerLink="/profile" routerLinkActive="active">ADMIN<img src="../assets/img/admin.png"  alt=""></a></li>
+
+
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav>
+            </div>
+        </div>
+        <ng-template #notLogged>
+
+          <nav id="navbar" class="navbar order-last order-lg-0 " (change)="roleChange()">
+          <ul>
+            <li><a class="nav-link scrollto " routerLink="/home" routerLinkActive="active">Home</a></li>
+            <li><a class="nav-link scrollto" routerLink="/about" routerLinkActive="active">About</a></li>
+            <li><a class="nav-link scrollto" routerLink="/services" routerLinkActive="active">Services</a></li>
+            <li><a class="nav-link scrollto" routerLink="/departments" routerLinkActive="active">Departments</a></li>
+            <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
+            <li><a class="nav-link scrollto" routerLink="/register" routerLinkActive="active">Register</a></li>
+            <li><a class="nav-link scrollto" routerLink="/login" routerLinkActive="active">Login</a></li>
+            <i class="bi bi-list mobile-nav-toggle"></i>
           </ul>
-        </li>
-        <a routerLink="/appointment" routerLinkActive="active" class="appointment-btn scrollto"><span class="d-none d-md-inline">Make an</span> Appointment</a>
-        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        <li><a class="nav-link scrollto" routerLink="/register" routerLinkActive="active">Register</a></li>
-        <div *ngIf="username ">
-          <li><a class="nav-link scrollto" routerLink="/login" routerLinkActive="active">Login</a></li>
-        </div>
-        <div *ngIf="username==null; ">
-          <li><a class="nav-link scrollto" routerLink="/login" routerLinkActive="active">Login</a></li>
-        </div>
-        <li *ngIf="username!=null"><a class="nav-link scrollto" (click)="logout()">Logout</a></li>
-        <li *ngIf="username"><a class="nav-link scrollto" routerLink="/profile" routerLinkActive="active">{{username}}</a></li>
-      </ul>
-      <i class="bi bi-list mobile-nav-toggle"></i>
-    </nav>
+
+          </nav>
+        </ng-template>
+
   </div>
 </header>
 <router-outlet></router-outlet>
