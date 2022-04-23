@@ -1,0 +1,107 @@
+<header id="header" class="sticky-top">
+  <div class="container d-flex align-items-center ">
+
+    <a href="index.html" class="logo me-auto"><img src="../assets/img/logo.png" alt=""></a>
+
+
+
+    <div *ngIf="username.length; else notLogged">
+      <div *ngIf="role=='ROLE_USER'">
+        <nav id="navbar" class="navbar order-last order-lg-0 " (load)="roleChange()">
+          <ul>
+
+            <li><a class="nav-link scrollto " routerLink="/home" routerLinkActive="active">Home</a></li>
+            <li><a class="nav-link scrollto" routerLink="/about" routerLinkActive="active">About</a></li>
+            <li><a class="nav-link scrollto" routerLink="/services" routerLinkActive="active">Services</a></li>
+            <li><a class="nav-link scrollto" routerLink="/departments" routerLinkActive="active">Departments</a></li>
+            <li><a class="nav-link scrollto" routerLink="/doctors" routerLinkActive="active">Doctors</a></li>
+            <a routerLink="/appointment" routerLinkActive="active" class="appointment-btn scrollto"><span
+                class="d-none d-md-inline">Make an</span> Appointment</a>
+            <li><a class="nav-link scrollto" routerLink="/about">Contact</a></li>
+
+            <li><a class="nav-link scrollto" routerLink="/home" (click)="logout()">Logout</a></li>
+            <li><a class="nav-link scrollto">
+                <app-profile-dropdown></app-profile-dropdown>
+              </a></li>
+
+
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
+      <div *ngIf="role=='ROLE_DOCTOR'">
+        <nav id="navbar" class="navbar order-last order-lg-0 " (change)="roleChange()">
+          <ul>
+
+            <li><a class="nav-link scrollto " routerLink="/home" routerLinkActive="active">Home</a></li>
+            <li><a class="nav-link scrollto" routerLink="/about" routerLinkActive="active">About</a></li>
+            <li><a class="nav-link scrollto" routerLink="/services" routerLinkActive="active">Services</a></li>
+            <li><a class="nav-link scrollto" routerLink="/departments" routerLinkActive="active">Departments</a></li>
+            <li><a class="nav-link scrollto" routerLink="/doctors" routerLinkActive="active">Doctors</a></li>
+            <a routerLink="/appointment" routerLinkActive="active" class="appointment-btn scrollto"><span
+                class="d-none d-md-inline">Check my</span> Appointments</a>
+            <li><a class="nav-link scrollto" routerLink="/about">Contact</a></li>
+
+
+
+
+            <li><a class="nav-link scrollto">
+                <app-profile-dropdown></app-profile-dropdown>
+              </a></li>
+
+
+
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
+      <div *ngIf="role=='ROLE_ADMIN'">
+        <nav id="navbar" class="navbar order-last order-lg-0 " (change)="roleChange()">
+          <ul>
+
+            <li><a class="nav-link scrollto " routerLink="/home" routerLinkActive="active">Home</a></li>
+            <li><a class="nav-link scrollto" routerLink="/about" routerLinkActive="active">About</a></li>
+            <li><a class="nav-link scrollto" routerLink="/services" routerLinkActive="active">Services</a></li>
+            <li><a class="nav-link scrollto" routerLink="/departments" routerLinkActive="active">Departments</a></li>
+            <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
+            <a routerLink="/appointment" routerLinkActive="active" class="appointment-btn scrollto"><span
+                class="d-none d-md-inline">Check</span> applications</a>
+            <!--f> ADD a manage users component <-->
+            <li><a class="nav-link scrollto" routerLink="/about">Manage Users</a></li>
+
+            <li><a class="nav-link scrollto" routerLink="/home" (click)="logout()">Logout</a></li>
+            <li><a class="nav-link scrollto" routerLink="/profile" routerLinkActive="active">ADMIN<img
+                  src="../assets/img/admin.png" alt=""></a></li>
+
+
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+      </div>
+    </div>
+    <ng-template #notLogged>
+
+      <nav id="navbar" class="navbar order-last order-lg-0 " (change)="roleChange()">
+        <ul>
+          <li><a class="nav-link scrollto " routerLink="/home" routerLinkActive="active">Home</a></li>
+          <li><a class="nav-link scrollto" routerLink="/about" routerLinkActive="active">About</a></li>
+          <li><a class="nav-link scrollto" routerLink="/services" routerLinkActive="active">Services</a></li>
+          <li><a class="nav-link scrollto" routerLink="/departments" routerLinkActive="active">Departments</a></li>
+          <li><a class="nav-link scrollto" href="#doctors">Doctors</a></li>
+          <li><a class="nav-link scrollto" routerLink="/register" routerLinkActive="active">Register</a></li>
+          <li><a class="nav-link scrollto" routerLink="/login" routerLinkActive="active">Login</a></li>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+        </ul>
+
+      </nav>
+    </ng-template>
+
+  </div>
+</header>
+<router-outlet></router-outlet>
+
+
+
+
+
+<!--a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="active">Home</a-->
