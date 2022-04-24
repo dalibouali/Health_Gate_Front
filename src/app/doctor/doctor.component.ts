@@ -14,7 +14,7 @@ export class DoctorComponent implements OnInit {
 @Input() speciality!: String;
 @Input() biography!:String;
 @Input() username!:String;
-
+@Input() doctorID!:String;
 
   allUsers!: [];
   doctorsList!:[any];

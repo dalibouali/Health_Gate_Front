@@ -25,6 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileDropdownComponent } from './profile-dropdown/profile-dropdown.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { FilterPipe } from './filter.pipe';
+import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
 
 
 
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'appointment', component: AppointmentComponent },
   { path: 'departments', component: DepartmentsComponent },
   { path: 'doctors', component: DoctorsComponent },
+  { path: 'doctorDetails/:id', component: DoctorDetailsComponent },
   { path: 'admin/doctors', component: TableDoctorsComponent },
 
   { path: '**', component: NotFoundComponent }
@@ -63,7 +65,8 @@ const routes: Routes = [
     TableDoctorsComponent,
     ProfileDropdownComponent,
     DoctorComponent,
-    FilterPipe
+    FilterPipe,
+    DoctorDetailsComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

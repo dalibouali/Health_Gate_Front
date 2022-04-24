@@ -26,7 +26,7 @@ export class DoctorService {
   }
   
   showdetails(id: number): Observable<any> {
-    return this.httpClient.get(URL + 'user/' + id, httpOptions)
+    return this.httpClient.get('http://localhost:9901/admin/' + 'user/' + id, httpOptions)
 
   }
 

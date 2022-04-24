@@ -17,7 +17,10 @@
         <div  style="display: flex;flex-direction: row; flex-wrap: wrap;"   *ngFor="let doc of allUsers | filter : searchText">
             
             <div *ngIf="doc.roles[0].id==2">
-                <app-doctor [doctorFirstName]="doc.firstName" [doctorLastName]="doc.lastName" [biography]="doc.bio" [speciality]="doc.specialities" [username]="doc.username">
+                <app-doctor [doctorFirstName]="doc.firstName" [doctorLastName]="doc.lastName" [biography]="doc.bio" 
+                [speciality]="doc.specialities" [username]="doc.username"
+                routerLink="/doctorDetails/{{doc.id}}" routerLinkActive="active"
+                >
 
                 </app-doctor>
             </div>
