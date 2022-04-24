@@ -53,7 +53,8 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
 
-        this.roles = this.tokenStorage.getUser().roles;
+        this.roles = this.tokenStorage.getUser().Roles;
+        //console.log("roles from page log comp",this.t)
         this.username = this.tokenStorage.getUser()
         window.location.reload()
         //this.jwtHelper = new JwtHelperService();

@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
     if (this.tokenStorage.getUser()) {
       this.role = this.tokenStorage.getRole()
       console.log("roleChange role:", window.sessionStorage.getItem('auth-token'))
+      console.log("roleChange role authrole:", window.sessionStorage.getItem(typeof('auth-role')))
       this.username = this.tokenStorage.getUser()
       let cred = [this.username, this.role]
       console.log(cred)

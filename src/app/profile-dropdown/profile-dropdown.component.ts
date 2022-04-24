@@ -147,6 +147,7 @@ export class ProfileDropdownComponent implements AfterViewInit {
   ngOnInit(): void {
     this.test = this.roleChange()
     console.log(this.roleChange());
+    this.username=this.test[0]
   }
 }
 

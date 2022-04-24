@@ -6,7 +6,7 @@
 
 
     <div *ngIf="username.length; else notLogged">
-      <div *ngIf="role=='ROLE_USER'">
+      <div *ngIf="(role==='ROLE_USER'||'ROLE_USER,ROLE_USER')">
         <nav id="navbar" class="navbar order-last order-lg-0 " (load)="roleChange()">
           <ul>
 
@@ -29,7 +29,7 @@
           <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
       </div>
-      <div *ngIf="role=='ROLE_DOCTOR'">
+      <div *ngIf="role===('ROLE_DOCTOR'||'ROLE_USER,ROLE_DOCTOR')">
         <nav id="navbar" class="navbar order-last order-lg-0 " (change)="roleChange()">
           <ul>
 
@@ -39,7 +39,7 @@
             <li><a class="nav-link scrollto" routerLink="/departments" routerLinkActive="active">Departments</a></li>
             <li><a class="nav-link scrollto" routerLink="/doctors" routerLinkActive="active">Doctors</a></li>
             <a routerLink="/appointment" routerLinkActive="active" class="appointment-btn scrollto"><span
-                class="d-none d-md-inline">Check my</span> Appointments</a>
+                class="d-none d-md-inline"> my</span> Appointments list</a>
             <li><a class="nav-link scrollto" routerLink="/about">Contact</a></li>
 
 
@@ -69,7 +69,7 @@
             <!--f> ADD a manage users component <-->
             <li><a class="nav-link scrollto" routerLink="/about">Manage Users</a></li>
 
-            <li><a class="nav-link scrollto" routerLink="/home" (click)="logout()">Logout</a></li>
+            
             <li><a class="nav-link scrollto" routerLink="/profile" routerLinkActive="active">ADMIN<img
                   src="../assets/img/admin.png" alt=""></a></li>
 

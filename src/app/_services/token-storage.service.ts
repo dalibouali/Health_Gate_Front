@@ -28,7 +28,8 @@ export class TokenStorageService {
 
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.removeItem(USER_ROLE);
-    window.sessionStorage.setItem(USER_ROLE, decodedToken.Roles)
+    decodedToken.Roles.forEach((r:any )=> window.sessionStorage.setItem(USER_ROLE, decodedToken.Roles))
+   // window.sessionStorage.setItem(USER_ROLE, decodedToken.Roles)
     window.sessionStorage.setItem(USER_KEY, decodedToken.sub)
     console.log("user role:::", decodedToken)
   }
