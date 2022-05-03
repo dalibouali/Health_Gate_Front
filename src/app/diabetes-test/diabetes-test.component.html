@@ -1,0 +1,76 @@
+<div class="row">
+       <div class="col">
+          <app-sidebar></app-sidebar>
+   
+       </div><div class="col">
+<div class="container">
+      
+       <h1 class="jumbotron">Diabetes pridection Test:</h1>
+       <br><br>
+<form name="form" #f="ngForm" method="post" (ngSubmit)="f.form.valid && onSubmit()">
+<div class="row">
+     <div class="col">
+    <label for="pregnancies">Pregnancies</label>
+    <input class="form-control" type="text"  class="form-control" id="pregnancies"
+           [(ngModel)]="form.pregnancies" name="pregnancies" #pregnancies>
+  </div>
+  <div class="">
+    <label for="glucose">Glucose</label>
+    <input class="form-control" type="text"  class="form-control" id="glucose"
+           [(ngModel)]="form.glucose" name="glucose" #glucose>
+  </div>
+  <div class="col">
+    <label for="bloodPressure">Blood pressure</label>
+    <input class="form-control" type="text"  class="form-control" id="bloodPressure"
+           [(ngModel)]="form.bloodPressure" name="bloodPressure" #bloodPressure>
+  </div>
+
+  <div class="">
+    <label for="skinThickness">Skin Thickness</label>
+    <input class="form-control" type="text"  class="form-control" id="skinThickness"
+           [(ngModel)]="form.skinThickness" name="skinThickness" #skinThickness>
+  </div>
+  <div class="col">
+       <label  for="insulin">Insulin</label>
+       <input class="form-control" type="text"  class="form-control" id="insulin"
+              [(ngModel)]="form.insulin" name="insulin" #insulin>
+     </div>
+  <div class="">
+    <label for="BMI">BMI: Body mass index: </label>
+    <input class="form-control" type="text"  class="form-control" id="BMI"
+           [(ngModel)]="form.BMI" name="BMI" #BMI>
+  </div>
+
+  <div class="col">
+    <label for="diabetesPedigreeFunction">Diabetes Pedigree Function:</label>
+    <input class="form-control" type="text"  class="form-control" id="diabetesPedigreeFunction"
+           [(ngModel)]="form.diabetesPedigreeFunction" name="diabetesPedigreeFunction" #DiabetesPedigreeFunction>
+  </div>
+
+  <div class="col">
+    <label for="age">Age :</label>
+    <input class="form-control" type="text"  class="form-control" id="age"
+           [(ngModel)]="form.age" name="age" #age>
+  </div>
+  <br><br><br>
+  <br><br><br>
+  <button   (click)="onSubmit()"
+       
+       type="button" class="btn btn-outline-primary"                               
+       >
+              Submit
+</button>
+</div>
+</form>
+<br><br><br>
+<div *ngIf="show" class="jumbotron jumbotron-fluid">
+       <div class="container">
+       <h2 class="display-3">Test Result :</h2>
+       <p class="lead">It's important to now that this result is an artificial intelligence pridection not the actual state of the patient<br>
+       this result could help the patient to avoid certain things that may cause the disease <br>
+also to follow a diet or to do routine check ups</p>
+       <span  class="border border-primary" style="background-color:gray;font-weight:bolder;font-size: 2em;bolder: 50px;">{{result}}</span></div>
+</div>
+</div></div>
+       
+</div>

@@ -26,7 +26,10 @@ import { ProfileDropdownComponent } from './profile-dropdown/profile-dropdown.co
 import { DoctorComponent } from './doctor/doctor.component';
 import { FilterPipe } from './filter.pipe';
 import { DoctorDetailsComponent } from './doctor-details/doctor-details.component';
-
+import { DiabetesTestComponent } from './diabetes-test/diabetes-test.component';
+import { HeartTestComponent } from './heart-test/heart-test.component';
+import { DoctorDashComponent } from './doctor-dash/doctor-dash.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 /*import { authInterceptorProviders } from './_helpers/auth.interceptor';*/
@@ -44,6 +47,9 @@ const routes: Routes = [
   { path: 'doctors', component: DoctorsComponent },
   { path: 'doctorDetails/:id', component: DoctorDetailsComponent },
   { path: 'admin/doctors', component: TableDoctorsComponent },
+  {path: 'doctor/dashboard',component: DoctorDashComponent},
+  {path:'doctor/ai/diabetes', component:DiabetesTestComponent},
+  {path:'doctor/ai/heart', component:HeartTestComponent},
 
   { path: '**', component: NotFoundComponent }
 ];
@@ -66,7 +72,11 @@ const routes: Routes = [
     ProfileDropdownComponent,
     DoctorComponent,
     FilterPipe,
-    DoctorDetailsComponent
+    DoctorDetailsComponent,
+    DoctorDashComponent,
+    DiabetesTestComponent,
+    HeartTestComponent,
+    SidebarComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
