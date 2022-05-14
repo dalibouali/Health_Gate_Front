@@ -1,0 +1,47 @@
+<!-- ======= Doctors Section ======= -->
+<section id="doctors" class="doctors section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Doctors</h2>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+                consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat
+                sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <!--search> START SEARCH  <-->
+        <div>
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+                placeholder="Search for a doctor">
+            <br />
+            <br />
+
+            <div class="row row-cols-4 row-cols-md-4 g-4">
+
+                <div class="card" *ngFor="let doc of allUsers | filter : searchText">
+
+                    <div>
+                        <app-doctor [doctorImageProfile]="doc.prolfileImageUrl" [doctorFirstName]="doc.firstName"
+                            [doctorLastName]="doc.lastName" [biography]="doc.bio" [speciality]="doc.specialities"
+                            [username]="doc.username" routerLink="/doctorDetails/{{doc.id}}" routerLinkActive="active">
+
+                        </app-doctor>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+</section><!-- End Doctors Section -->

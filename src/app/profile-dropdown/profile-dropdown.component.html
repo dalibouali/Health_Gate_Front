@@ -1,0 +1,18 @@
+<li class="nav-item" ngbDropdown placement="bottom-end">
+    <a ngbDropdownToggle class="nav-link waves-effect waves-dark pro-pic" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        <img [src]="ImageProfile" alt="user" class="rounded-circle" width="31" />
+
+        <span class="ms-2">Profile</span>
+    </a>
+    <div class="dropdown-menu-right" ngbDropdownMenu>
+        <a class="dropdown-item" routerLink="/profile" routerLinkActive="active"> My Profile</a>
+        <a class="dropdown-item" routerLink="/medicalfile" routerLinkActive="active"> Medical File</a>
+
+        <a class="dropdown-item" routerLink="/mydoctors"> My Doctors </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" routerLink="/appointment" routerLinkActive="active">Appointments</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" routerLink="/home" (click)="logout()"> Logout</a>
+    </div>
+</li>

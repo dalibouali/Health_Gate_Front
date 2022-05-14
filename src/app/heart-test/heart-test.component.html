@@ -1,0 +1,113 @@
+<div class="row section-bg">
+    <div class="col">
+        <app-sidebar></app-sidebar>
+
+    </div>
+    <div class="col">
+
+
+        <div class="container" style="border: 0.5em;  ">
+
+            <h1 style="text-align: center">Heart Disease pridection
+                Test:</h1>
+            <br><br>
+            <form name="form" #f="ngForm" method="post" (ngSubmit)="f.form.valid && onSubmit()">
+                <div class="row">
+                    <div class="col">
+                        <label for="age">Age: </label>
+                        <input class="form-control" type="text" class="form-control" id="age" [(ngModel)]="form.age"
+                            name="pregnancies" #age>
+                    </div>
+                    <div class="">
+                        <br>
+                        <label for="glucose">Sex :</label>
+                        <select data-component="prefix" id="prefix_7" class="dropdown-match-height form-dropdown"
+                            aria-labelledby="label_7 sublabel_7_prefix" autoComplete="section-input_7 honorific-prefix"
+                            name="gender" [(ngModel)]="form.gender" required #gender="ngModel">
+                            <option class="form-check-input" value=" 0" checked="checked"> Male </option>
+                            <option class="form-check-input" value="1"> Female </option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="cp">ceruloplasmin</label>
+                        <input class="form-control" type="text" class="form-control" id="cp" [(ngModel)]="form.cp"
+                            name="cp" #cp>
+                    </div>
+
+                    <div class="col">
+                        <label for="trestbps">resting blood pressure in mm/Hg: </label>
+                        <input class="form-control" type="text" class="form-control" id="trestbps"
+                            [(ngModel)]="form.trestbps" name="trestbps" #trestbps>
+                    </div>
+                    <div class="col">
+                        <label for="chol">resting blood pressure in mm/Hg:</label>
+                        <input class="form-control" type="text" class="form-control" id="chol" [(ngModel)]="form.chol"
+                            name="chol" #chol>
+                    </div>
+                    <div class="">
+                        <label for="fbs">fasting blood pressure>120mg/dl: </label>
+                        <input class="form-control" type="text" class="form-control" id="fbs" [(ngModel)]="form.fbs"
+                            name="fbs" #fbs>
+                    </div>
+
+                    <div class="col">
+                        <label for="restecg">resting electrocardiographic results:</label>
+                        <input class="form-control" type="text" class="form-control" id="restecg"
+                            [(ngModel)]="form.restecg" name="restecg" #restecg>
+                    </div>
+
+                    <div class="col">
+                        <label for="thalach">maximum heart rate achieved:</label>
+                        <input class="form-control" type="text" class="form-control" id="thalach"
+                            [(ngModel)]="form.thalach" name="thalach" #thalach>
+                    </div>
+                    <div class="col">
+                        <label for="exang">exercise induced angina:</label>
+                        <input class="form-control" type="text" class="form-control" id="exang" [(ngModel)]="form.exang"
+                            name="exang" #exang>
+                    </div>
+                    <div class="">
+                        <label for="oldpeak">old peak ST depression induced by exercise relative
+                            to rest:</label>
+                        <input class="form-control" type="text" class="form-control" id="oldpeak"
+                            [(ngModel)]="form.oldpeak" name="oldpeak" #oldpeak>
+                    </div>
+                    <div class="col">
+                        <label for="slope">the slope of the peak exercise ST segment:</label>
+                        <input class="form-control" type="text" class="form-control" id="slope" [(ngModel)]="form.slope"
+                            name="slope" #slope>
+                    </div>
+                    <div class="">
+                        <label for="ca">number of major vessels colored by
+                            flourosopy (ca):</label>
+                        <input class="form-control" type="text" class="form-control" id="ca" [(ngModel)]="form.ca"
+                            name="ca" #ca>
+                    </div>
+                    <div class="col">
+                        <label for="thal">thalassemia:</label>
+                        <input class="form-control" type="text" class="form-control" id="thal" [(ngModel)]="form.thal"
+                            name="thal" #thal>
+                    </div>
+
+                    <br><br><br>
+                    <br><br><br>
+                    <button (click)="onSubmit()" type="button" class="btn btn-outline-primary">
+                        Submit
+                    </button>
+                </div>
+            </form>
+            <br><br><br>
+            <div *ngIf="show" class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h2 class="display-3">Test Result :</h2>
+                    <p class="lead">It's important to now that this result is an artificial intelligence pridection not
+                        the actual state of the patient<br>
+                        this result could help the patient to avoid certain things that may cause the disease <br>
+                        also to follow a diet or to do routine check ups</p>
+                    <span class="border border-primary"
+                        style="background-color:gray;font-weight:bolder;font-size: 2em;border: 50px;">{{result}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

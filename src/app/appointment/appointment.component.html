@@ -1,0 +1,133 @@
+<section id="appointment" class="appointment section-bg">
+  <div class="container" data-aos="fade-up">
+    <div class="row" style="width: 70%; text-align: center; margin-left: 200px;">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title" style="text-align: center;">My Appointments</h1>
+
+            <div class="table-responsive">
+              <table class="table align-middle text-nowrap">
+                <thead>
+                  <tr>
+                    <th class="text-dark font-medium fs-4">Doctor</th>
+                    <th class="text-dark font-medium fs-4">Status</th>
+                    <th class="text-dark font-medium fs-4">Time</th>
+                    <th class="text-dark font-medium fs-4">Date</th>
+                    <th class="text-dark font-medium fs-4">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor='let ap of Appointment'>
+                    <td>
+                      <div class="d-flex align-items-center">
+
+
+
+                        <div class="ms-3">
+                          <h5 class="mb-0 font-medium">{{ap.doctor.username}}</h5>
+                          <span class="mb-0 font-medium">{{ap.doctor.firstName}}</span>
+                        </div>
+                      </div>
+                    </td>
+
+
+                    <td>
+                      <span *ngIf="ap.confirmed==true ;else elseBlock ">Confirmed</span>
+                      <ng-template #elseBlock>In Progress</ng-template>
+                    </td>
+                    <td>
+                      <span *ngIf="ap.confirmed==true ;else elsetime ">{{ap.date|date:'shortTime'}}</span>
+                      <ng-template #elsetime>Not Yet</ng-template>
+                    </td>
+
+
+
+                    <td>
+                      <h5 class="mb-0 font-medium">{{ap.date|date}}</h5>
+                    </td>
+                    <td>
+                      <!-- Call to action buttons -->
+                      <ul class="list-inline m-0">
+
+
+                        <li class="list-inline-item">
+                          <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip"
+                            data-placement="top" title="View"><i class="fa fa-edit"></i></button>
+                        </li>
+                        <li class="list-inline-item">
+                          <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip"
+                            data-placement="top" title="Canel"><i class="fa fa-trash"
+                              (click)="canceloppointment(ap.id)"></i></button>
+                        </li>
+                      </ul>
+                      <script>
+                        $(function () {
+                          $('[data-toggle="tooltip"]').tooltip();
+                        });
+                      </script>
+                    </td>
+                  </tr>
+
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="section-title">
+      <h2>Make an Appointment</h2>
+
+    </div>
+
+
+
+
+
+    <form method="post" name="form" (ngSubmit)="f.form.valid && onsubmit()" #f="ngForm" novalidate data-aos-delay="100"
+      style="width: 70%; text-align: center; margin-left: 200px;">
+      <h3>Choose Your Doctor</h3>
+      <select #cricket (change)="update($event)" class="form-select" name="doctor" [(ngModel)]="form.doctor" required
+        #doctor="ngModel">
+        <option value="default">----</option>
+        <option *ngFor="let d of doctors" [value]="d.id">
+          {{d.username}}
+        </option>
+      </select>
+
+      <p>You selected {{selected}}</p>
+
+      <div class="row">
+
+        <div class="col-12">
+          <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
+              #d="ngbDatepicker" name="date" [(ngModel)]="form.date" required #date="ngModel">
+            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="form-group mt-3">
+        <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)" name="message"
+          [(ngModel)]="form.message" required #message="ngModel"></textarea>
+
+      </div>
+      <div class="my-3">
+        <div class="loading">Loading</div>
+        <div class="error-message"></div>
+        <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
+      </div>
+
+      <div class="text-center"><button type="submit" (click)="onsubmit()">Make an Appointment</button></div>
+    </form>
+
+  </div>
+</section>

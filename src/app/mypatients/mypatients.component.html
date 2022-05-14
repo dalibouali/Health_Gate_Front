@@ -1,0 +1,55 @@
+<div class="row section-bg" style="min-height: 500px;  ">
+
+
+
+    <div class="col">
+        <app-sidebar></app-sidebar>
+
+    </div>
+    <div class="col">
+        <div class="container">
+            <div class="card-body">
+                <h1 class="card-title" style="text-align: center;">My Patients</h1>
+
+                <div class="table-responsive">
+                    <table class="table align-middle text-nowrap">
+                        <thead>
+                            <tr>
+                                <th class="text-dark font-medium fs-4">Username</th>
+                                <th class="text-dark font-medium fs-4">City</th>
+                                <th class="text-dark font-medium fs-4">Status</th>
+                                <th class="text-dark font-medium fs-4">Phone</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor='let ts of doctors'>
+                                <td>
+                                    <div class="d-flex align-items-center" routerLink="/patientDetails/{{ts.id}}">
+                                        <img [src]="ts.prolfileImageUrl" alt="user" width="45" class="rounded-circle">
+                                        <div class="ms-3">
+                                            <h5 class="mb-0 font-medium">{{ts.username}}</h5>
+                                            <span class="mb-0 font-medium">{{ts.firstName}}</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="mb-0 font-medium">{{ts.city}}</td>
+
+
+                                <td class="mb-0 font-medium">{{ts.civilStatus}}</td>
+
+
+
+
+                                <td>
+                                    <h5 class="mb-0 font-medium">{{ts.phone}}</h5>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

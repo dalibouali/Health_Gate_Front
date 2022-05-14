@@ -1,0 +1,358 @@
+<form method="post" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    <div class="container-fluid section-bg">
+        <br>
+        <br>
+        <br>
+        <div class="row justify-content-center mt-0">
+            <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3" style="margin-top:100px">
+                    <div class="row ">
+                        <div class="col-md-12 mx-0">
+
+                            <div class="form-card" *ngIf="step==1">
+                                <ul id="progressbar">
+                                    <li class="active" id="account"><strong>Account</strong></li>
+                                    <li id="personal"><strong>Personal</strong></li>
+                                    <li id="payment"><strong>Payment</strong></li>
+                                    <li id="confirm"><strong>Finish</strong></li>
+                                </ul>
+                                <h2>Account Information</h2>
+
+
+                                <div class="card" style="width: 30rem; margin-left: 150px; margin-bottom: 30px;">
+
+
+
+                                    <input type="text" id="first_3" data-defaultvalue="" class="form-control"
+                                        autoComplete="section-input_3 given-name" value="" data-component="first"
+                                        aria-labelledby="label_3 sublabel_3_first" name="firstName" required
+                                        placeholder="First Name" [(ngModel)]="form.firstName" required
+                                        #firstName="ngModel" />
+
+                                    <br>
+
+                                    <input type="text" id="last_3" data-defaultvalue=""
+                                        autoComplete="section-input_3 family-name" class="form-control" value=""
+                                        data-component="last" aria-labelledby="label_3 sublabel_3_last" name="lastName"
+                                        required placeholder="Last Name" [(ngModel)]="form.lastName" required
+                                        #lastName="ngModel" />
+
+                                    <br>
+                                    <input type="email" id="input_10" name="q10_email10" class="form-control"
+                                        data-defaultvalue="" size="30" value="" data-component="email"
+                                        aria-labelledby="label_10 sublabel_input_10" name="username" required
+                                        [(ngModel)]="form.username" required #username="ngModel" placeholder="Email" />
+                                    <br>
+                                    <input type="password" id="input_10" class="form-control" data-defaultvalue=""
+                                        size="30" value="" data-component="email"
+                                        aria-labelledby="label_10 sublabel_input_10" name="password" required
+                                        [(ngModel)]="form.password" required #password="ngModel"
+                                        placeholder="Password" />
+
+                                    <br>
+                                    <input type="button" name="next" class="next action-button" value="Next Step"
+                                        (click)="next()" />
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-card" *ngIf="step==2">
+                                <ul id="progressbar">
+                                    <li class="active" id="account"><strong>Account</strong></li>
+                                    <li class="active" id="personal"><strong>Personal</strong></li>
+                                    <li id="payment"><strong>Payment</strong></li>
+                                    <li id="confirm"><strong>Finish</strong></li>
+                                </ul>
+                                <h2>Personal information</h2>
+                                <div class="card" style="width: 30rem; margin-left: 150px; margin-bottom: 30px;">
+
+                                    <select data-component="prefix" id="prefix_7"
+                                        class="dropdown-match-height form-dropdown"
+                                        aria-labelledby="label_7 sublabel_7_prefix"
+                                        autoComplete="section-input_7 honorific-prefix" name="gender" required
+                                        aria-placeholder="Gender" [(ngModel)]="form.civilStatus" required
+                                        #civilStatus="ngModel">
+                                        <option value=" Male"> Male </option>
+                                        <option value="Female"> Female </option>
+                                    </select>
+                                    <br>
+
+
+
+
+                                    <input type="text" id="middle_7" class="form-textbox" data-defaultvalue=""
+                                        autoComplete="section-input_7 additional-name" size="20" value=""
+                                        data-component="middle" aria-labelledby="label_7 sublabel_7_middle" name="phone"
+                                        placeholder="Phone" required [(ngModel)]="form.phone" required
+                                        #phone="ngModel" />
+
+                                    <br>
+
+                                    <input type="text" id="last_7" name="q7_others7[last]" class="form-textbox"
+                                        data-defaultvalue="" autoComplete="section-input_7 family-name" size="15"
+                                        value="" data-component="last" aria-labelledby="label_7 sublabel_7_last"
+                                        placeholder="Height" name="height" required [(ngModel)]="form.height" required
+                                        #height="ngModel" />
+                                    <br>
+
+                                    <input type="text" id="suffix_7" name="q7_others7[suffix]" class="form-textbox"
+                                        data-defaultvalue="" autoComplete="section-input_7 honorific-suffix" size="4"
+                                        value="" data-component="suffix" aria-labelledby="label_7 sublabel_7_suffix"
+                                        name="weight" required placeholder="weight" [(ngModel)]="form.weight" required
+                                        #weight="ngModel" />
+                                    <br>
+                                    <div>
+                                        <input type="button" name="Previous" class="next action-button"
+                                            value="Previous Step" (click)="previous()" />
+
+                                        <input type="button" name="next" class="next action-button" value="Next Step"
+                                            (click)="next()" />
+
+
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            <div class="form-card" *ngIf="step==3">
+                                <ul id="progressbar">
+                                    <li class="active" id="account"><strong>Account</strong></li>
+                                    <li class="active" id="personal"><strong>Personal</strong></li>
+                                    <li class="active" id="payment"><strong>Adress</strong></li>
+                                    <li id="confirm"><strong>Finish</strong></li>
+                                </ul>
+                                <h2>Personal information</h2>
+                                <div class="card" style="width: 30rem; margin-left: 150px; margin-bottom: 30px;">
+
+                                    <input type="text" id="input_4_addr_line1" name="q4_address4[addr_line1]"
+                                        class="form-textbox form-address-line" data-defaultvalue=""
+                                        autoComplete="section-input_4 address-line1" value=""
+                                        data-component="address_line_1" aria-labelledby="label_4 sublabel_4_addr_line1"
+                                        name="address" placeholder="Adress" [(ngModel)]="form.address" required
+                                        #address="ngModel" />
+                                    <br>
+
+
+
+
+                                    <input type="text" id="input_4_city" name="q4_address4[city]"
+                                        class="form-textbox form-address-city" data-defaultvalue=""
+                                        autoComplete="section-input_4 address-level2" value="" data-component="city"
+                                        aria-labelledby="label_4 sublabel_4_city" name="city" placeholder="City"
+                                        [(ngModel)]="form.city" required #city="ngModel" />
+
+                                    <br>
+
+
+                                    <div>
+                                        <input type="button" name="Previous" class="next action-button"
+                                            value="Previous Step" (click)="previous()" />
+
+                                        <input type="button" name="next" class="next action-button" value="Next Step"
+                                            (click)="next()" />
+
+
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            <div class="form-card" *ngIf="step==4">
+                                <ul id="progressbar">
+                                    <li class="active" id="account"><strong>Account</strong></li>
+                                    <li class="active" id="personal"><strong>Personal</strong></li>
+                                    <li class="active" id="payment"><strong>Adress</strong></li>
+                                    <li class="active" id="confirm"><strong>Finish</strong></li>
+                                </ul>
+                                <div id="cid_13" class="form-input-wide" style="text-align: left;margin-left: 20px;">
+                                    <div class="form-single-column" role="group" aria-labelledby="label_13"
+                                        data-component="checkbox">
+
+                                        <span class="form-checkbox-item" style="clear:left">
+                                            <span class="dragger-item">
+                                            </span>
+                                            <input type="checkbox" aria-describedby="label_13" class="form-checkbox"
+                                                id="input_13_0" name="q13_input13[]"
+                                                value="High Cholesterol ارتفاع الكوليسترول"
+                                                (change)="Cholesterol($event)" />
+
+                                            <label id="label_input_13_0" for="input_13_0"> High Cholesterol ارتفاع
+                                                الكوليسترول
+                                            </label>
+                                        </span>
+                                        <br>
+                                        <span class="form-checkbox-item" style="clear:left">
+                                            <span class="dragger-item">
+                                            </span>
+                                            <input type="checkbox" aria-describedby="label_13" class="form-checkbox"
+                                                id="input_13_1" name="q13_input13[]"
+                                                value="High Blood Pressure ارتفاع ضغط الدم"
+                                                (change)="BloodPressure($event)" />
+
+                                            <label id="label_input_13_1" for="input_13_1"> High Blood Pressure ارتفاع
+                                                ضغط
+                                                الدم
+                                            </label>
+                                        </span>
+                                        <br>
+                                        <span class="form-checkbox-item" style="clear:left">
+                                            <span class="dragger-item">
+                                            </span>
+                                            <input type="checkbox" aria-describedby="label_13" class="form-checkbox"
+                                                id="input_13_2" name="q13_input13[]" value="Diabetes السكري"
+                                                (change)="Diabete($event)" />
+
+                                            <label id="label_input_13_2" for="input_13_2"> Diabetes السكري </label>
+                                        </span>
+                                        <br>
+                                        <span class="form-checkbox-item" style="clear:left">
+                                            <span class="dragger-item">
+                                            </span>
+                                            <input type="checkbox" aria-describedby="label_13" class="form-checkbox"
+                                                id="input_13_3" name="q13_input13[]"
+                                                value="Asthma or Chronic Lung Disease الربو أو مرض الرئة المزمن"
+                                                (change)="Asthma($event)" />
+
+                                            <label id="label_input_13_3" for="input_13_3"> Asthma or Chronic Lung
+                                                Disease
+                                                الربو أو
+                                                مرض الرئة المزمن </label>
+                                        </span>
+                                        <br>
+                                        <span class="form-checkbox-item" style="clear:left">
+                                            <span class="dragger-item">
+                                            </span>
+                                            <input type="checkbox" aria-describedby="label_13" class="form-checkbox"
+                                                id="input_13_4" name="q13_input13[]"
+                                                value="Osteoporosis/Bone Fractures هشاشة أو كسر في العظم"
+                                                (change)="Osteoporosis($event)" />
+
+                                            <label id="label_input_13_4" for="input_13_4"> Osteoporosis/Bone Fractures
+                                                هشاشة
+                                                أو كسر
+                                                في العظم </label>
+                                        </span>
+                                        <br>
+                                        <span class="form-checkbox-item" style="clear:left">
+                                            <span class="dragger-item">
+                                            </span>
+                                            <input type="checkbox" aria-describedby="label_13" class="form-checkbox"
+                                                id="input_13_5" name="q13_input13[]"
+                                                value="Arthritis, Gout or Joint Injuries إلتهاب المفاصل/ النقرص/إصابات المفاصل"
+                                                (change)="Arthritis($event)" />
+
+                                            <label id="label_input_13_5" for="input_13_5"> Arthritis, Gout or Joint
+                                                Injuries
+                                                إلتهاب
+                                                المفاصل/ النقرص/إصابات المفاصل </label>
+                                        </span>
+                                        <br>
+                                        <span class="form-checkbox-item" style="clear:left">
+                                            <span class="dragger-item">
+                                            </span>
+                                            <input type="checkbox" aria-describedby="label_13" class="form-checkbox"
+                                                id="input_13_6" name="q13_input13[]"
+                                                value="Heart Attack/Heart Disease/Heart Failure نوبة قلبية/ مرض القلب/ فشل القلب"
+                                                (change)="HeartAttack($event)" />
+
+                                            <label id="label_input_13_6" for="input_13_6"> Heart Attack/Heart
+                                                Disease/Heart
+                                                Failure
+                                                نوبة قلبية/ مرض القلب/ فشل القلب </label>
+                                        </span>
+                                        <br>
+                                        <span class="form-checkbox-item" style="clear:left">
+                                            <span class="dragger-item">
+                                            </span>
+                                            <input type="checkbox" aria-describedby="label_13" class="form-checkbox"
+                                                id="input_13_7" name="q13_input13[]" value="Blood Sugar سكر الدم"
+                                                (change)="BloodSugar($event)" />
+
+                                            <label id="label_input_13_7" for="input_13_7"> Blood Sugar سكر الدم </label>
+                                        </span>
+                                        <br>
+                                        <span class="form-checkbox-item" style="clear:left">
+                                            <span class="dragger-item">
+                                            </span>
+                                            <input type="checkbox" aria-describedby="label_13" class="form-checkbox"
+                                                id="input_13_8" name="q13_input13[]"
+                                                value="Hemoglobin (Hb1ac) الهيموجلوبين A1C"
+                                                (change)="Hemoglobin($event)" />
+
+                                            <label id="label_input_13_8" for="input_13_8"> Hemoglobin (Hb1ac)
+                                                الهيموجلوبين
+                                                A1C
+                                            </label>
+                                        </span>
+                                        <br>
+                                        <span class="form-checkbox-item" style="clear:left">
+                                            <span class="dragger-item">
+                                            </span>
+                                            <input type="checkbox" aria-describedby="label_13" class="form-checkbox"
+                                                id="input_13_9" name="q13_input13[]" value="Cancer السرطان"
+                                                (change)="Cancer($event)" />
+
+                                            <label id="label_input_13_9" for="input_13_9"> Cancer السرطان </label>
+                                        </span>
+                                        <br>
+                                        <span class="form-checkbox-item" style="clear:left">
+                                            <span class="dragger-item">
+                                            </span>
+                                            <input type="checkbox" aria-describedby="label_13" class="form-checkbox"
+                                                id="input_13_10" name="q13_input13[]"
+                                                value="Breast/ Colon/Bowel/Prostrate/Lung الصدر/ القولون/ أمعاء/بروستات/رئة"
+                                                (change)="Breast($event)" />
+
+                                            <label id="label_input_13_10" for="input_13_10"> Breast/
+                                                Colon/Bowel/Prostrate/Lung
+                                                الصدر/ القولون/ أمعاء/بروستات/رئة </label>
+                                        </span>
+                                        <br>
+                                        <span class="form-checkbox-item" style="clear:left">
+                                            <span class="dragger-item">
+                                            </span>
+                                            <input type="checkbox" aria-describedby="label_13" class="form-checkbox"
+                                                id="input_13_11" name="q13_input13[]" value="Otherأخرى"
+                                                (change)="Other($event)" />
+
+                                            <label id="label_input_13_11" for="input_13_11"> Otherأخرى </label>
+                                        </span>
+                                        <br>
+                                    </div>
+                                    <div>
+                                        <input type="button" name="Previous" class="next action-button"
+                                            value="Previous Step" (click)="previous()" />
+
+                                        <input type="button" name="next" class="next action-button" value="Register"
+                                            (click)="onSubmit()" />
+
+
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
+
+
+
+
+
+
+</form>
