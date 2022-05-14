@@ -19,7 +19,7 @@
                                 <h2>Account Information</h2>
 
 
-                                <div class="card" style="width: 30rem; margin-left: 150px; margin-bottom: 30px;">
+                                <div style="width: 50%; margin-left: 25%; margin-bottom: 30px;">
 
 
 
@@ -50,8 +50,8 @@
                                         placeholder="Password" />
 
                                     <br>
-                                    <input type="button" name="next" class="next action-button" value="Next Step"
-                                        (click)="next()" />
+                                    <img src="/assets/next.png" type="button" name="next" class="next action-button"
+                                        value="Next Step" (click)="next()" />
                                 </div>
                             </div>
 
@@ -61,11 +61,12 @@
                                 <ul id="progressbar">
                                     <li class="active" id="account"><strong>Account</strong></li>
                                     <li class="active" id="personal"><strong>Personal</strong></li>
-                                    <li id="payment"><strong>Payment</strong></li>
+                                    <li id="payment"><strong>Adress</strong></li>
                                     <li id="confirm"><strong>Finish</strong></li>
                                 </ul>
                                 <h2>Personal information</h2>
-                                <div class="card" style="width: 30rem; margin-left: 150px; margin-bottom: 30px;">
+                                <div style="width: 50%; margin-left: 25%; margin-bottom: 30px;">
+                                    <label>gender :</label>
 
                                     <select data-component="prefix" id="prefix_7"
                                         class="dropdown-match-height form-dropdown"
@@ -76,6 +77,7 @@
                                         <option value=" Male"> Male </option>
                                         <option value="Female"> Female </option>
                                     </select>
+                                    <br>
                                     <br>
 
 
@@ -88,26 +90,29 @@
                                         #phone="ngModel" />
 
                                     <br>
+                                    <br>
 
                                     <input type="text" id="last_7" name="q7_others7[last]" class="form-textbox"
                                         data-defaultvalue="" autoComplete="section-input_7 family-name" size="15"
                                         value="" data-component="last" aria-labelledby="label_7 sublabel_7_last"
-                                        placeholder="Height" name="height" required [(ngModel)]="form.height" required
-                                        #height="ngModel" />
+                                        size="20" placeholder="Height" name="height" required [(ngModel)]="form.height"
+                                        required #height="ngModel" />
+                                    <br>
                                     <br>
 
                                     <input type="text" id="suffix_7" name="q7_others7[suffix]" class="form-textbox"
                                         data-defaultvalue="" autoComplete="section-input_7 honorific-suffix" size="4"
                                         value="" data-component="suffix" aria-labelledby="label_7 sublabel_7_suffix"
-                                        name="weight" required placeholder="weight" [(ngModel)]="form.weight" required
-                                        #weight="ngModel" />
+                                        size="20" name="weight" required placeholder="weight" [(ngModel)]="form.weight"
+                                        required #weight="ngModel" />
+                                    <br>
                                     <br>
                                     <div>
-                                        <input type="button" name="Previous" class="next action-button"
-                                            value="Previous Step" (click)="previous()" />
+                                        <img src="/assets/previous.png" type="button" name="Previous"
+                                            class="next action-button" value="Previous Step" (click)="previous()" />
 
-                                        <input type="button" name="next" class="next action-button" value="Next Step"
-                                            (click)="next()" />
+                                        <img src="/assets/next.png" type="button" name="next" class="next action-button"
+                                            value="Next Step" (click)="next()" />
 
 
                                     </div>
@@ -125,7 +130,7 @@
                                     <li id="confirm"><strong>Finish</strong></li>
                                 </ul>
                                 <h2>Personal information</h2>
-                                <div class="card" style="width: 30rem; margin-left: 150px; margin-bottom: 30px;">
+                                <div style="width: 50%; margin-left: 25%; margin-bottom: 30px;">
 
                                     <input type="text" id="input_4_addr_line1" name="q4_address4[addr_line1]"
                                         class="form-textbox form-address-line" data-defaultvalue=""
@@ -133,6 +138,7 @@
                                         data-component="address_line_1" aria-labelledby="label_4 sublabel_4_addr_line1"
                                         name="address" placeholder="Adress" [(ngModel)]="form.address" required
                                         #address="ngModel" />
+                                    <br>
                                     <br>
 
 
@@ -145,14 +151,15 @@
                                         [(ngModel)]="form.city" required #city="ngModel" />
 
                                     <br>
+                                    <br>
 
 
                                     <div>
-                                        <input type="button" name="Previous" class="next action-button"
-                                            value="Previous Step" (click)="previous()" />
+                                        <img src="/assets/previous.png" type="button" name="Previous"
+                                            class="next action-button" value="Previous Step" (click)="previous()" />
 
-                                        <input type="button" name="next" class="next action-button" value="Next Step"
-                                            (click)="next()" />
+                                        <img src="/assets/next.png" type="button" name="next" class="next action-button"
+                                            value="Next Step" (click)="next()" />
 
 
                                     </div>
@@ -324,12 +331,12 @@
                                         </span>
                                         <br>
                                     </div>
-                                    <div>
-                                        <input type="button" name="Previous" class="next action-button"
-                                            value="Previous Step" (click)="previous()" />
+                                    <div style="text-align: center;">
+                                        <img src="/assets/previous.png" type="button" name="Previous"
+                                            class="next action-button" value="Previous Step" (click)="previous()" />
 
-                                        <input type="button" name="next" class="next action-button" value="Register"
-                                            (click)="onSubmit()" />
+                                        <img src="/assets/done.png" type="button" name="next" class="next action-button"
+                                            value="Register" (click)="onSubmit()" />
 
 
                                     </div>

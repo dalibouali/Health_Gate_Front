@@ -1,6 +1,6 @@
 <section id="appointment" class="appointment section-bg">
   <div class="container" data-aos="fade-up">
-    <<<<<<< HEAD <div class="row" style="width: 70%; text-align: center; margin-left: 200px;">
+    <div class="row" style="width: 70%; text-align: center; margin-left: 200px;">
       <div class="col-12">
         <div class="card">
           <div class="card-body">
@@ -77,59 +77,59 @@
 
         </div>
       </div>
-  </div>
-  <br>
-  <br>
-  <div class="section-title">
-    <h2>Make an Appointment</h2>
+    </div>
+    <br>
+    <br>
+    <div class="section-title">
+      <h2>Make an Appointment</h2>
 
-  </div>
-
-
+    </div>
 
 
 
-  <form method="post" name="form" (ngSubmit)="f.form.valid && onsubmit()" #f="ngForm" novalidate data-aos-delay="100"
-    style="width: 70%; text-align: center; margin-left: 200px;">
-    <h3>Choose Your Doctor</h3>
-    <select #cricket (change)="update($event)" class="form-select" name="doctor" [(ngModel)]="form.doctor" required
-      #doctor="ngModel">
-      <option value="default">----</option>
-      <option *ngFor="let d of doctors" [value]="d.id">
-        {{d.username}}
-      </option>
-    </select>
 
-    <p>You selected {{selected}}</p>
 
-    <div class="row">
+    <form method="post" name="form" (ngSubmit)="f.form.valid && onsubmit()" #f="ngForm" novalidate data-aos-delay="100"
+      style="width: 70%; text-align: center; margin-left: 200px;">
+      <h3>Choose Your Doctor</h3>
+      <select #cricket (change)="update($event)" class="form-select" name="doctor" [(ngModel)]="form.doctor" required
+        #doctor="ngModel">
+        <option value="default">----</option>
+        <option *ngFor="let d of doctors" [value]="d.id">
+          {{d.username}}
+        </option>
+      </select>
 
-      <div class="col-12">
-        <div class="input-group">
-          <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
-            #d="ngbDatepicker" name="date" [(ngModel)]="form.date" required #date="ngModel">
-          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+      <p>You selected {{selected}}</p>
+
+      <div class="row">
+
+        <div class="col-12">
+          <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker
+              #d="ngbDatepicker" name="date" [(ngModel)]="form.date" required #date="ngModel">
+            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+          </div>
         </div>
+
+
+      </div>
+
+      <div class="form-group mt-3">
+        <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)" name="message"
+          [(ngModel)]="form.message" required #message="ngModel"></textarea>
+
+
+      </div>
+      <div class="my-3">
+        <div class="loading">Loading</div>
+        <div class="error-message"></div>
+        <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
       </div>
 
 
-    </div>
-
-    <div class="form-group mt-3">
-      <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)" name="message"
-        [(ngModel)]="form.message" required #message="ngModel"></textarea>
-
-
-    </div>
-    <div class="my-3">
-      <div class="loading">Loading</div>
-      <div class="error-message"></div>
-      <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
-    </div>
-
-
-    <div class="text-center"><button type="submit" (click)="onsubmit()">Make an Appointment</button></div>
-  </form>
+      <div class="text-center"><button type="submit" (click)="onsubmit()">Make an Appointment</button></div>
+    </form>
 
   </div>
 </section>
