@@ -84,7 +84,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit(): void {
-
     this.Registration.register(this.form).subscribe(
       data => {
 
@@ -97,7 +96,6 @@ export class RegistrationComponent implements OnInit {
 
 
         this.goHome()
-
 
 
 

@@ -8,7 +8,6 @@ import { UpdateProfileService } from '../_services/update-profile.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
   role: any;
   username = "";
   logged: any;

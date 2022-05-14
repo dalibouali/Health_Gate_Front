@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 import { AdminServiceService } from '../_services/admin-service.service';
 import { Doctor } from './DoctorModel';
 
-
 @Component({
   selector: 'app-doctors',
   templateUrl: './doctors.component.html',
@@ -44,5 +43,4 @@ export class DoctorsComponent implements OnInit {
         }
       );
   }
-
 }

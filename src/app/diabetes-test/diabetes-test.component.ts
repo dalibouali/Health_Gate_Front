@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AIServices } from '../_services/AI-services.service';
 import { Router } from "@angular/router";
-import { AIServicesService } from '../_services/ai-services.service';
+
 
 @Component({
   selector: 'app-diabetes-test',
@@ -22,7 +22,7 @@ export class DiabetesTestComponent implements OnInit {
     "diabetesPedigreeFunction": null,
     "age": null
   }
-  constructor(private aiServices: AIServicesService, private router: Router) { }
+  constructor(private aiServices: AIServices, private router: Router) { }
 
   ngOnInit(): void {
   }

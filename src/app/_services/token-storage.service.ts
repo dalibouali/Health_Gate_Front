@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {JwtHelperService} from "@auth0/angular-jwt";
+import { JwtHelperService } from "@auth0/angular-jwt";
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
 const USER_ROLE = 'auth-role'
@@ -7,9 +7,9 @@ const USER_ROLE = 'auth-role'
   providedIn: 'root'
 })
 export class TokenStorageService {
-  jwtHelper:any
-  username:any
-  decodedToken:any
+  jwtHelper: any
+  username: any
+  decodedToken: any
   constructor() { }
   signOut(): void {
     window.sessionStorage.clear();
@@ -28,7 +28,9 @@ export class TokenStorageService {
 
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.removeItem(USER_ROLE);
+
     window.sessionStorage.setItem(USER_ROLE, decodedToken.Roles)
+
     window.sessionStorage.setItem(USER_KEY, decodedToken.sub)
     console.log("user role:::", decodedToken)
   }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-doctor-dash',
   templateUrl: './doctor-dash.component.html',

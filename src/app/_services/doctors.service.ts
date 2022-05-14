@@ -3,11 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TokenStorageService } from './token-storage.service';
 
+
 const URL = 'http://localhost:9091/api/';
 const httpOptions = {
   headers: new HttpHeaders({
     'Accept': 'application/json',
     'Content-Type': 'application/json',
+
 
   })
 };
@@ -16,6 +18,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DoctorService {
+
 
   constructor(private tokenStorageService: TokenStorageService, private httpClient: HttpClient) { }
 
@@ -46,6 +49,7 @@ export class DoctorService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${this.tokenStorageService.getToken()}` })
     };
     return this.httpClient.get(URL + 'Mypatients', httpOptions);
+
   }
 
 

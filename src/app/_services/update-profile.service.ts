@@ -4,7 +4,9 @@ import { Observable } from 'rxjs';
 import { TokenStorageService } from './token-storage.service';
 
 
+
 const AUTH_API = 'http://localhost:9091/api/';
+
 
 
 @Injectable({
@@ -24,6 +26,7 @@ export class UpdateProfileService {
     };
     return this.http.put(AUTH_API + 'setProfile', form, httpOptions);
   }
+
   showProfileImg(): Observable<any> {
     let httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json', 'responseType': 'text', 'Authorization': `Bearer ${this.tokenStorageService.getToken()}` })
@@ -52,4 +55,5 @@ export class UpdateProfileService {
     return this.http.put('http://localhost:9091/api/addDoctorToMyList/' + id, username, httpOptions)
 
   }
+
 }

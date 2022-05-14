@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+
 import { NgbDateStruct, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AdminServiceService } from '../_services/admin-service.service';
 import { DoctorService } from '../_services/doctors.service';
 import { UserServiceService } from '../_services/user-service.service';
 // a plugin!
+
 
 
 
@@ -14,6 +16,7 @@ import { UserServiceService } from '../_services/user-service.service';
   styleUrls: ['./appointment.component.css']
 })
 export class AppointmentComponent implements OnInit {
+
   Appointment: any;
 
   model: NgbDateStruct | undefined;
@@ -135,4 +138,5 @@ export class AppointmentComponent implements OnInit {
 
 
 }
+
 
